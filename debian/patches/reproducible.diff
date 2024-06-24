@@ -1,0 +1,22 @@
+From: Sylvestre Ledru <sylvestre@debian.org>
+Date: Mon, 22 Jan 2024 17:11:20 -0400
+Subject: reproducible
+
+===================================================================
+---
+ autopep8.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/autopep8.py b/autopep8.py
+index 6b28b8a..23f7e4d 100755
+--- a/autopep8.py
++++ b/autopep8.py
+@@ -3737,7 +3737,7 @@ def create_parser():
+                         default=DEFAULT_CONFIG,
+                         help='path to a global pep8 config file; if this file '
+                              'does not exist then this is ignored '
+-                             '(default: {})'.format(DEFAULT_CONFIG))
++                             '(default: ~/.config)')
+     parser.add_argument('--ignore-local-config', action='store_true',
+                         help="don't look for and apply local config files; "
+                              'if not passed, defaults are updated with any '

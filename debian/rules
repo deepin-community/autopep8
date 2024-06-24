@@ -1,4 +1,15 @@
 #!/usr/bin/make -f
+VERSION = $(shell dpkg-parsechangelog |  sed -rne "s,^Version: ([0-9.]+)(~|-)(.*),\1,p")
+export PYBUILD_NAME=autopep8
 
 %:
-	dh $@
+	dh $@ --buildsystem=pybuild
+
+override_dh_installdocs:
+	help2man --name=autopep8  --version-string=$(VERSION) "python3 autopep8.py" > debian/autopep8.1
+	dh_installdocs
+
+override_dh_clean:
+	rm -f debian/*.1
+	rm -rf build
+	dh_clean
