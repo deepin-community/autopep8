@@ -1,15 +1,25 @@
-Source: template-repository
-Section: unknown
+Source: autopep8
+Maintainer: Sylvestre Ledru <sylvestre@debian.org>
+Uploaders: Debian Python Team <team+python@tracker.debian.org>
+Section: python
 Priority: optional
-Maintainer: Tsic404 <liuheng@deepin.org>
-Build-Depends: debhelper (>= 11)
-Standards-Version: 4.1.3
-Homepage: https://github.com/deepin-community/template-repository
-#Vcs-Browser: https://salsa.debian.org/debian/deepin-community-template-repository
-#Vcs-Git: https://salsa.debian.org/debian/deepin-community-template-repository.git
+Build-Depends: python3-setuptools, python3-all, dh-sequence-python3,
+ debhelper-compat (= 13), pycodestyle, python3-pycodestyle (>= 2.10.0),
+ dh-python, help2man, python3-toml, python3-pip, python3-tomli,
+ pybuild-plugin-pyproject
+Standards-Version: 4.6.2
+Homepage: https://github.com/hhatto/autopep8
+Vcs-Git: https://salsa.debian.org/python-team/packages/autopep8.git
+Vcs-Browser: https://salsa.debian.org/python-team/packages/autopep8
 
-Package: template-repository
-Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: <insert up to 60 chars description>
- <insert long description, indented with spaces>
+Package: python3-autopep8
+Architecture: all
+Depends: ${misc:Depends}, ${python3:Depends}, python3-pep8,
+ python3-pkg-resources,
+Breaks: python-autopep8 (<< 1.4.4-2)
+Replaces: python-autopep8 (<< 1.4.4-2)
+Description: tool that automatically formats Python code to conform to PEP 8
+ autopep8 automatically formats Python code to conform to the PEP 8 style
+ guide. It uses the pep8 utility to determine what parts of the code needs to
+ be formatted. autopep8 is capable of fixing most of the formatting issues that
+ can be reported by pep8. This package is for Python3.
